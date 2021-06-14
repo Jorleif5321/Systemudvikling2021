@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Statslig_bruger
+
+Statslig_bruger -> CoronaApp: Login
+activate CoronaApp
+
+CoronaApp -> Database: Verificer bruger
+activate Database
+
+alt succesfuldt login
+    Database --> CoronaApp: bruger ok
+
+    CoronaApp -> Statslig_bruger: Menu
+else Bruger ikke fundet
+    Database --> CoronaApp: invalid bruger
+
+    CoronaApp -> Statslig_bruger: log ud
+end
+
+Statslig_bruger -> CoronaApp: Søgning efter mutation
+
+CoronaApp -> Database: Mutation fundet?
+
+
+alt Mutation fundet
+    Database --> CoronaApp: Mutation fundet
+
+    CoronaApp -> Statslig_bruger: Viser mutation
+
+    Statslig_bruger -> CoronaApp: Ændrer/opdaterer mutation
+
+    CoronaApp -> Database: Opdaterer mutation i database
+
+    Database --> CoronaApp: Succesfuld ændring
+
+    CoronaApp --> Statslig_bruger: Mutation ændret/opdateret
+
+else Mutation ikke fundet
+    Database --> CoronaApp: Mutation ikke fundet
+
+    CoronaApp -> Statslig_bruger: Ingen mutation med dette navn
+
+    Statslig_bruger -> CoronaApp: Indtast ny mutation
+
+    CoronaApp -> Database: Opdaterer database
+
+    Database --> CoronaApp: Succesfuld ændring
+deactivate Database
+
+    CoronaApp -> Statslig_bruger: Mutation tilføjet
+deactivate CoronaApp
+
+end
+
+
+@enduml

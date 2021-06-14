@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="467.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.guiHealthProfPatientDataController">
+   <children>
+      <SplitPane dividerPositions="0.25985401459854013" layoutX="10.0" layoutY="10.0" prefHeight="467.0" prefWidth="687.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <GridPane prefHeight="398.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onAction="#patientDataButton" prefHeight="84.0" prefWidth="175.0" text="Patient Data" />
+                        <Button mnemonicParsing="false" onAction="#mutationButton" prefHeight="84.0" prefWidth="175.0" text="Mutation" GridPane.rowIndex="1" />
+                        <Button layoutX="10.0" layoutY="118.0" mnemonicParsing="false" onAction="#logOffButton" prefHeight="84.0" prefWidth="175.0" text="SignOff" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane prefHeight="398.0" prefWidth="417.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab text="Add Patient">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <TabPane prefHeight="440.0" prefWidth="504.0" tabClosingPolicy="UNAVAILABLE">
+                                      <tabs>
+                                          <Tab text="Add Patient">
+                                             <content>
+                                                <GridPane prefHeight="359.0" prefWidth="606.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <TextField fx:id="cprFieldAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter CPR (XXXXXXYYYY)" />
+                                                      <TextField fx:id="nameAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="58.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter Name" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="birthdateAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="178.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter Birthday(YYYY/MM/DD)" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="zipCodeAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter ZIPcode" GridPane.rowIndex="3" />
+                                                      <TextField fx:id="tNumberAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter Telefon Number" GridPane.columnIndex="1" />
+                                                      <TextField fx:id="streetNameAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter Street Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="streetNumberAddPatientField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Enter Street Number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#registerPatientButton" prefHeight="25.0" prefWidth="65.0" text="Register" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                      <Button mnemonicParsing="false" onAction="#cancelButton" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                   </children>
+                                                </GridPane>
+                                             </content>
+                                          </Tab>
+                                        <Tab text="Add TestData">
+                                             <content>
+                                                <GridPane prefHeight="359.0" prefWidth="606.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <TextField fx:id="resultTestDataField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Result" />
+                                                      <TextField fx:id="testDateTestDataField" alignment="CENTER" layoutX="10.0" layoutY="58.0" nodeOrientation="LEFT_TO_RIGHT" promptText="TestDate" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="patientCPRTestDataField" alignment="CENTER" layoutX="10.0" layoutY="178.0" nodeOrientation="LEFT_TO_RIGHT" promptText="CprPatient" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="mutationTypeTestDataField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="MutationType" GridPane.columnIndex="1" />
+                                                      <TextField fx:id="idHealthProfTestDataField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="idHealthProf" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#registerTestDataButton" prefHeight="25.0" prefWidth="65.0" text="Register" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                      <Button mnemonicParsing="false" onAction="#cancelButton" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                   </children>
+                                                </GridPane>
+                                             </content>
+                                          </Tab>
+                                        <Tab text="Add Geolocation">
+                                             <content>
+                                                <GridPane prefHeight="359.0" prefWidth="606.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <TextField fx:id="zipCodeGeoField" alignment="CENTER" layoutX="10.0" layoutY="58.0" nodeOrientation="LEFT_TO_RIGHT" promptText="ZipCode" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="mutationTypeGeoField" alignment="CENTER" layoutX="10.0" layoutY="178.0" nodeOrientation="LEFT_TO_RIGHT" promptText="MutationType" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="cprGeoField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="CprPatient" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="registerDateGeoField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Registration Date (YYYY/MM/DD)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="longitudeGeoField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Longitude" GridPane.columnIndex="1" />
+                                                      <TextField fx:id="latitudeGeoField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="latitude" />
+                                                      <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#registerGeolocationButton" prefHeight="25.0" prefWidth="65.0" text="Register" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                      <Button mnemonicParsing="false" onAction="#cancelButton" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                   </children>
+                                                </GridPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="Add SensorData">
+                                           <content>
+                                                <GridPane prefHeight="359.0" prefWidth="606.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <TextField fx:id="cprSensorField" alignment="CENTER" layoutX="10.0" layoutY="58.0" nodeOrientation="LEFT_TO_RIGHT" promptText="CprPatient" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="pullsSensorField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="Puls" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="bodyTemperatureSensorField" alignment="CENTER" layoutX="10.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" promptText="BodyTemperature in C" />
+                                                      <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#registerSensorDataButton" prefHeight="25.0" prefWidth="65.0" text="Register" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                      <Button mnemonicParsing="false" onAction="#cancelButton" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                   </children>
+                                                </GridPane>
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab text="Search Patient">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.21525885558583105" orientation="VERTICAL" prefHeight="372.0" prefWidth="417.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <GridPane prefHeight="76.0" prefWidth="415.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Button mnemonicParsing="false"  text="Search Patient" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="searchPatientTextField" promptText="Patient Cpr" />
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="263.0" prefWidth="415.0">
+                                             <children>
+                                                <VBox layoutX="171.0" layoutY="14.0" prefHeight="353.0" prefWidth="502.0" AnchorPane.bottomAnchor="-66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <TabPane prefHeight="356.0" prefWidth="502.0" tabClosingPolicy="UNAVAILABLE">
+                                                        <tabs>
+                                                          <Tab  text="Personal Info">
+                                                               <content>
+                                                                  <TableView prefHeight="145.0" prefWidth="398.0">
+                                                                    <columns>
+                                                                      <TableColumn fx:id="cprsearchPateintColumn" prefWidth="75.0" text="Cpr" />
+                                                                      <TableColumn fx:id="nameSearchPatientField" prefWidth="75.0" text="Name" />
+                                                                        <TableColumn fx:id="birthdateSearchPatientField" prefWidth="75.0" text="Birthdate" />
+                                                                        <TableColumn fx:id="tNumberColumn" prefWidth="75.0" text="TNumber" />
+                                                                        <TableColumn fx:id="streetNameColumn" minWidth="3.0" prefWidth="68.0" text="Street" />
+                                                                        <TableColumn fx:id="StreetNumberColumn" minWidth="3.0" prefWidth="68.0" text="StreetNumber" />
+                                                                        <TableColumn fx:id="ZipCodeColumn" minWidth="3.0" prefWidth="68.0" text="Zipcode" />
+                                                                    </columns>
+                                                                  </TableView>
+                                                               </content>
+                                                            </Tab>
+                                                          <Tab text="Testdata">
+                                                               <content>
+                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                     <columns>
+                                                                        <TableColumn prefWidth="52.0" text="Result" />
+                                                                        <TableColumn prefWidth="89.0" text="Mutation Type" />
+                                                                        <TableColumn text="Test Date" />
+                                                                        <TableColumn prefWidth="97.0" text="IdHealthProf" />
+                                                                        <TableColumn prefWidth="97.0" text="PatientCPR" />
+                                                                     </columns>
+                                                                  </TableView>
+                                                               </content>
+                                                            </Tab>
+                                                            <Tab text="Geolocation">
+                                                              <content>
+                                                                  <TableView prefHeight="261.0" prefWidth="417.0">
+                                                                     <columns>
+                                                                        <TableColumn prefWidth="75.0" text="Cpr" />
+                                                                        <TableColumn prefWidth="75.0" text="Name" />
+                                                                     </columns>
+                                                                  </TableView>
+                                                              </content>
+                                                            </Tab>
+                                                            <Tab text="Sensor">
+                                                              <content>
+                                                                  <TableView prefHeight="258.0" prefWidth="417.0">
+                                                                     <columns>
+                                                                        <TableColumn prefWidth="120.0" text="Body Temperature" />
+                                                                        <TableColumn prefWidth="84.0" text="Pulls" />
+                                                                        <TableColumn prefWidth="84.0" text="Patient CPR" />
+                                                                     </columns>
+                                                                  </TableView>
+                                                              </content>
+                                                            </Tab>
+                                                            <Tab text="Contact Patient" />
+                                                        </tabs>
+                                                      </TabPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

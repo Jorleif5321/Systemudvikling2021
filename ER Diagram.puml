@@ -1,0 +1,73 @@
+
+
+@startuml
+
+entity consent {
+idConsent: int
+status: int
+patientCPR
+}
+entity healthProf{
+idHP: int
+name: varchar
+tNumber: int
+streetName: varchar
+streetNumber: int
+}
+entity mutations {
+idMutation: int
+mutationType: varchar
+registerDate: date
+ZIPcode: int
+}
+entity patient{
+CPR: int
+name: varchar
+birthDate: date
+tNumber: int
+streetName: varchar
+streetNumber: int
+ZIPcode: int
+}
+entity stakeholder{
+idStakeholder: int
+name: varchar
+CPR: int
+tNumber: int
+}
+entity test{
+idTest: int
+result: int
+mutationType: varchar
+testDate: date
+idHP: int
+patientCPR: int
+
+}
+entity geolocation{
+idGeolocation: int
+latitude: int
+longitude: int
+mutationType: varchar
+ZIPcode: int
+registrationDate: int
+patientCPR: int
+}
+entity sensor{
+idSensor: int
+temperature: int
+pulls: int
+patientCPR: int
+}
+
+consent ||--|| patient: gives
+healthProf ||--|{ test: makes
+patient ||--|{ test: gets
+geolocation ||--|| patient
+sensor  ||--|| patient
+test ||--|{ mutations: finds
+test ||--|| stakeholder
+healthProf ||--|{ patient: treats
+stakeholder ||--|{ geolocation
+
+@enduml

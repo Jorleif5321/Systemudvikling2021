@@ -1,0 +1,17 @@
+1) gui consult patient
+2) search for registered mutations
+3) Update the type of the mutations also in test data for patient
+4) Privacy concerns are increasing in a segment of the stakeholders, that would like to opt-out from being tracked at any time.
+The system should support a citizen in this task.
+More specifically, citizens should be able to modify their preferences to provide or deny consent in the tracking of geographical and sensor information.
+Citizens can alter their preferences in the version of the smitteapp, which will communicate with CoronaApp by sending a message that will grant/remove permissions from the citizen.
+In case the citizen has removed the consent, then the system should 1. not send geographical and sensor information from the smitteapp to the coronaApp,
+and 2. Healthcare practitioners should not be able to see updated geographical/sensor information from consulted patients (in the Consult Patient use case).
+To decrease false positives, the geographical/sensor information showcase in Consult Patient should then be marked with the timestamp from the last measurement.
+
+5.1)Create all the classes necessary to execute the Consult Patient use case.
+5.2)Define a set of unit tests that will be necessary to test the Patient class
+
+6) Show that at least all the tests that are necessary to execute the standard flow for the Consult Patient flow pass.
+ Provide evidence of this by including a test coverage report in your document.
+

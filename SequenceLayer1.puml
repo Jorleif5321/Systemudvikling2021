@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Citizen
+
+Citizen -> UI: Leder efter testresultat
+
+activate UI
+UI -> Web_services: fremsøger data
+
+activate Web_services
+Web_services -> CoronaNET: Fremsøger data
+activate CoronaNET
+
+CoronaNET -> Lab: Løbende søgning af testresultat
+activate Lab
+CoronaNET <-- Lab: Løbende sending af testresultat
+deactivate Lab
+
+Web_services <-- CoronaNET: Sender data
+deactivate CoronaNET
+
+UI <- Web_services: Viser testresultat
+deactivate Web_services
+
+
+
+
+@enduml

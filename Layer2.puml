@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Citizen
+
+Citizen -> UI: Login
+activate UI
+
+UI -> Web_services: Verificer bruger
+activate Web_services
+
+alt succesfuldt login
+    Web_services --> UI: bruger ok
+
+    UI -> Citizen: Menu
+else Bruger ikke fundet
+    Web_services --> UI: invalid bruger
+   deactivate Web_services
+
+
+    UI -> Citizen: log ud
+    deactivate UI
+end
+
+
+
+
+@enduml

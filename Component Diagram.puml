@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package "Layer1 - Users" as U{
+  [Citizen]
+  [HealthProf]
+
+}
+package "Layer 2 - Presentation" as ui {
+  [UI with service presentation]
+
+}
+package "Layer 3 - Logic" as L {
+
+   [Web services]
+ }
+package  "Layer 4 - Common data" as data{
+  [CoronaNET]
+  [Smitteapp]
+  [SQLdatabase]
+}
+
+
+package "Layer 5 - Support production" as sup{
+  [Lab]
+  [Registre]
+}
+
+package "layer 6 - Security" as sec{
+[Security services]
+}
+
+U-right->sec
+ui-right->sec
+L-right->sec
+data-left->sec
+sup-left->sec
+
+[Citizen]..>[UI with service presentation]
+[HealthProf]..>[UI with service presentation]
+
+[UI with service presentation]..>[Web services]
+
+[Web services]..>[CoronaNET]
+[Web services]..>[SQLdatabase]
+[Web services]..>[Smitteapp]
+[CoronaNET]..>[Lab]
+[SQLdatabase]..>[Registre]
+[Smitteapp]..>[Lab]
+[Security services]
+
+
+@enduml

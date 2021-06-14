@@ -1,0 +1,26 @@
+
+
+@startuml
+
+start
+:CoronaApp;
+note right: Loop for tracing consent.
+repeat
+if (Giving consent to tracking) then (true)
+    :Geografical tracking;
+else (false)
+    :No tracking;
+    if (Later wish for tracking) then (yes)
+        :Giving consent;
+        :Geografical tracking;
+    else (no)
+    stop
+endif
+endif
+:Wish for stop tracking;
+note right : If user wishes to stop granting consent
+
+
+
+
+@enduml

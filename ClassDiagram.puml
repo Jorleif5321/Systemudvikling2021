@@ -1,0 +1,158 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+class createUser{
++ Name: str
++ CPR: int
++ birthDate: Date
++ TelephoneNumber: int
++ streetName: str
++ streetNumber: int
++ ZIPcode: int
+__
++ createPatient(): boolean
++ createHealtProf(): boolean
++ createStakeHolder(): boolean
+}
+
+
+class login  {
++name:str
++CPR:int
+__
++patientLogin(): boolean
++healthProfLogin(): boolean
++stakeHolderLogin(): boolean
+}
+
+class validator{
++ name: str
++ CPR: int
++ birthDate: Date
++ telephoneNumber: int
++ streetName: str
++ streetNumber: int
++ ZIPcode: int
+__
++isValid(): boolean
++isRegister: boolean
+}
+
+interface coronaAppen{
++GUI
+__
+- mainPatient(): void
+- mainHealthProf: void
+- mainStakeHolder void
+}
+
+class patientData{
++ name: str
++ CPR: int
++ birthDate: Date
++ telephoneNumber: int
++ streetName: str
++ streetNumber: int
++ ZIPcode: int
+__
++ searchPatientData: void
++ setTestData(): boolean
++ setGeolocationData(): boolean
++ setSensorData(): boolean
++ updatePatientData: boolean
++ addPatient: void
+}
+
+class news{
++ mutationType: str
+__
++ getMutationType(): float
+}
+
+class personalData{
++ name: str
++ CPR: int
++ testData: void
++ geoLocationData: int
++ sensorData: int
+__
++getTestType(): str
++getGeoData(): float
++getSenseordata: float
+}
+
+class consent{
++ CPR: int
++ statusConsent: boolean
+__
++ setConsent(): boolean
++ statusConsent: void
++ updateConsent: boolean
+}
+
+class contact{
++ patientName: str
++ patientCPR: int
++ patientTelephoneNumber: int
+__
++ searchPatientData(): Void
++ contactPatient(): boolean
+}
+
+
+class mutation{
++ mutationType: str
++ registerDate: Date
++ ZIPcode: int
+__
++ addMutation(): boolean
++ updateMutation: void
++ isRegisterMutationType: boolean
+}
+
+
+class result{
++ ZIPcode: int
++ registerDate: Date
++ dateRange:
++ mutationType: str
+--
++getStatistics(): List
++modifyStatistics(): float
++printStatistics(): str
+}
+
+class dataBase{
++ MySql: void
++ smitteApp: void
++ coronaNET: void
+}
+
+login -- createUser
+login"1..3"--"1..1"coronaAppen: Login
+
+
+coronaAppen"1"--"1"news
+coronaAppen"1"--"1"personalData
+coronaAppen"1"--"1"consent
+coronaAppen"1"--"1"contact
+coronaAppen"1" -- "1"mutation
+coronaAppen"1" -- "1"patientData
+coronaAppen"1" -- "1"result
+
+
+news"1"..>"1"mutation: Retrieve Data
+contact ..> dataBase: Retrieve Data
+patientData ..> dataBase: Retrieve Data
+mutation ..> dataBase
+personalData ..> dataBase: Retrieve Data
+consent ..> dataBase
+result ..> dataBase
+login..>validator:validate login
+createUser ..>validator: validate createUser
+
+
+
+@enduml

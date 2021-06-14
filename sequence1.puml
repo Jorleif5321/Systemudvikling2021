@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Sundhedspersonale
+
+Sundhedspersonale -> CoronaApp: Login
+activate CoronaApp
+
+CoronaApp -> Database: Verificer bruger
+activate Database
+
+alt succesfuldt login
+    Database --> CoronaApp: bruger ok
+
+    CoronaApp -> Sundhedspersonale: Menu
+else Bruger ikke fundet
+    Database --> CoronaApp: invalid bruger
+deactivate Database
+
+    CoronaApp -> Sundhedspersonale: log ud
+end
+
+Sundhedspersonale -> CoronaApp: Fremsøger patient
+
+CoronaApp -> Smitteapp: Verificer samtykke
+activate Smitteapp
+
+alt samtykke givet
+    Smitteapp --> CoronaApp: Samtykke givet
+
+    CoronaApp -> Sundhedspersonale: Viser patientinfo
+else samtykke ikke givet
+    Smitteapp --> CoronaApp: Samtykke ikke givet
+deactivate Smitteapp
+
+    CoronaApp -> Sundhedspersonale: Ingen info
+deactivate CoronaApp
+end
+
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Citizen
+
+Citizen -> UI: Opret bruger med NemID
+activate UI
+
+UI -> Security_services: Verificer NemID
+activate Security_services
+
+
+alt Bruger oprettet
+    Security_services --> UI: NemID ok
+    Security_services -> Database: Navn, CPR og samtykke gemmes
+    activate Database
+
+    Security_services <-- Database: Navn, CPR og samtykke
+    deactivate Database
+    Security_services -> UI: Bruger oprettet
+
+
+
+else Bruger ikke oprettet
+    Security_services -> UI: invalid NemID
+   deactivate Security_services
+    Citizen <- UI: Opret bruger med NemID
+    deactivate UI
+end
+
+
+
+
+@enduml

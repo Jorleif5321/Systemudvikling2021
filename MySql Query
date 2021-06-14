@@ -1,0 +1,205 @@
+
+
+CREATE TABLE `patient` (
+  `CPR` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `birthDate` date NOT NULL,
+  `tNumber` int NOT NULL,
+  `streetName`varchar(50) NOT NULL,
+  `streetNumber`int NOT NULL,
+  `ZIPcode`int NOT NULL,
+  PRIMARY KEY (`CPR`)
+);
+
+CREATE TABLE `consent` (
+  `idConsent` int NOT NULL AUTO_INCREMENT,
+  `status` tinyint(1) NOT NULL,
+  `CPR` int NOT NULL,
+  PRIMARY KEY (`idConsent`),
+  FOREIGN KEY (`CPR`) REFERENCES `patient` (`CPR`)
+);
+
+CREATE TABLE `healthprof` (
+  `idHP` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `tnumber` int NOT NULL,
+  `streetName`varchar(50) NOT NULL,
+  `streetNumber`int NOT NULL,
+  PRIMARY KEY (`idHP`)
+);
+
+CREATE TABLE `mutation` (
+  `idMutation` int NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) NOT NULL,
+  `registerDate` date NOT NULL,
+  `Zipcode` int DEFAULT NULL,
+  PRIMARY KEY (`idMutation`)
+);
+
+
+
+
+CREATE TABLE `stakeholder` (
+  `idStakeholder` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `CPR` int NOT NULL,
+  `tnumber` int NOT NULL,
+  PRIMARY KEY (`idStakeholder`)
+);
+
+
+CREATE TABLE `test` (
+  `idTest` int NOT NULL AUTO_INCREMENT,
+  `result` tinyint(1) NOT NULL,
+  `type` varchar(50) NULL,
+  `testDate` date NOT NULL,
+  `idHP` int NOT NULL,
+  `CPR` int NOT NULL,
+  PRIMARY KEY (`idTest`),
+  FOREIGN KEY (`idHP`) REFERENCES `healthprof` (`idHP`),
+  FOREIGN KEY (`CPR`) REFERENCES `patient` (`CPR`)
+);
+
+CREATE TABLE `geolocation` (
+  `idGeolocation` int NOT NULL AUTO_INCREMENT,
+  `latitude` int NULL,
+  `longitude` int NULL,
+  `type` varchar(50) NOT NULL,
+  `ZIPcode` int NOT NULL,
+  `registrationDate` Date NOT NULL,
+  `CPR` int NOT NULL,
+  PRIMARY KEY (`idGeolocation`),
+  FOREIGN KEY (`CPR`) REFERENCES `patient` (`CPR`)
+);
+
+CREATE TABLE `sensor` (
+  `idSensor` int NOT NULL AUTO_INCREMENT,
+  `temperature` int NOT NULL,
+  `pulls` int NOT NULL,
+  `CPR` int NOT NULL,
+  PRIMARY KEY (`idSensor`),
+  FOREIGN KEY (`CPR`) REFERENCES `patient` (`CPR`)
+);
+
+INSERT INTO `patient`
+(`CPR`,
+`name`,
+`birthDate`,
+`tNumber`,
+`streetName`,
+`streetNumber`,
+`ZIPcode`)
+VALUES
+(1012001011,
+"Adrian",
+"2000-12-10",
+11111111,
+"Nyvej",
+"11",
+"2100"),
+
+(1001128801,
+"Leif",
+"2012-01-10",
+21111122,
+"Nyvej",
+"19",
+"2500"),
+
+(1210972071,
+"Felix",
+"1997-10-12",
+12341111,
+"Nyrevej",
+"11",
+"2200"),
+
+(1809961901,
+"Nicolai",
+"1996-09-18",
+98761111,
+"Organgade",
+ "17",
+ "2300"),
+
+(1708981991,
+"Rasmus",
+"1998-08-17",
+45113912,
+"Hjertevej",
+" 1",
+"2400");
+
+INSERT INTO `healthprof`
+(`Name`,
+`tnumber`,
+`streetName`,
+`streetNumber`)
+VALUES
+("Dr. 1",
+22312219,
+"lægevej",
+ "1"
+),
+
+("Dr. 2",
+22312220,
+"lægevejen",
+" 13"
+),
+
+("Læge 3",
+22310019,
+"sundhedsgade",
+" 1"
+);
+
+INSERT INTO `test`
+(`result`,
+`type`,
+`testDate`,
+`idHP`,
+`CPR`)
+VALUES
+(1,
+"B.1.1.6",
+"2021-06-02",
+1,
+1001128801),
+
+(1,
+"B.2.2.4",
+"2021-05-02",
+1,
+1809961901),
+
+(0,
+"B.1.1.6",
+"2021-06-02",
+3,
+1210972071),
+
+(1,
+"B.3.1.1",
+"2021-06-04",
+2,
+1708981991);
+
+INSERT INTO `mutation`
+(`type`,
+`registerDate`,
+`ZIPcode`)
+VALUES
+("B.1.1.6",
+"2019-03-12",
+"2500"),
+
+("B.2.2.4",
+"2020-01-10",
+"2100"),
+
+("B.3.1.1",
+"2021-06-02",
+"2800");
+
+ændre fk for test og idmutation

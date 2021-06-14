@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.guiHealthProfLoginController">
+   <children>
+      <GridPane prefHeight="359.0" prefWidth="606.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <TextField fx:id="nameField" alignment="CENTER" layoutX="10.0" layoutY="58.0" nodeOrientation="LEFT_TO_RIGHT" text="Enter Name" GridPane.rowIndex="2" />
+            <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#loginHealthProfButton2" prefHeight="25.0" prefWidth="65.0" text="Login" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#cancelButtonLogin" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+      <VBox prefHeight="41.0" prefWidth="600.0">
+         <children>
+            <TextArea prefHeight="200.0" prefWidth="200.0" text="                                                           HealthProf Login - Please Enter you're Data" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
